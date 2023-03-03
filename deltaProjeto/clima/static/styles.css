@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+main {
+  background-image: url("bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 3/2;
+  width: 36pc;
+  border-radius: 15px;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+#info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+#btnPesquisa {
+  border-style: none;
+  background-color: #d1d1ff;
+  padding: 8px;
+  border-radius: 8px;
+}
+#btnPesquisa:hover {
+  cursor: pointer;
+}
+#pesquisa {
+  padding: 6px;
+}
+
+#item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+#btns {
+  display: flex;
+  flex-direction: row;
+}
+#btns span:hover {
+  cursor: pointer;
+}
+#btns span {
+  margin: 5px;
+}
+#resultados {
+  height: 70%;
+  width: 355px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  overflow-y: scroll;
+  background: #dadada;
+  border: solid 2px gray;
+  padding: 16px;
+}
+#estado {
+  font-weight: bold;
+}
+ul {
+  display: flex;
+  gap: 20px;
+}
+li {
+  list-style: none;
+}
+#create,
+#update,
+#delete {
+  flex-direction: row;
+  background-color: #d1d1ff;
+  padding: 10px;
+  border-radius: 8px;
+  user-select: none;
+  text-transform: capitalize;
+}
+#create:hover,
+#update:hover,
+#delete:hover {
+  cursor: pointer;
+}
