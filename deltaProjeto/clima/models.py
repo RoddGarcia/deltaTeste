@@ -1,7 +1,5 @@
 from django.db import models
 
-class Estado(models.Model):
-    name = models.CharField(max_length=30)
-
-    def __srt__(self):
-        return self.name
+class Localizacao(models.Model):
+    estado = models.CharField(max_length=200)
+    cidade = models.CharField(max_length=200)

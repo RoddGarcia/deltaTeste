@@ -1,6 +1,5 @@
 import requests
 from django.shortcuts import render
-import requests
 from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt
@@ -22,6 +21,7 @@ def index(request, estadoSelecionado=None):
    for i in response:
       if i['state'] == estado:
          climaDicionario = {
+            "id" : response[cont]['id'],
             "estado" : response[cont]['state'],
             "cidade" : response[cont]['name']
          }
@@ -32,6 +32,31 @@ def index(request, estadoSelecionado=None):
 
    return render(request, 'clima/index.html', resultado)
 
+def editar(request):
+   data = {
+      'state': 'John Doe',
+      'city': 'john.doe@example.com'
+   }
+   response = requests.get('https://apiadvisor.climatempo.com.br/api/v1/locale/city?country=BR&token=511da671c39f877ff8525f098bab378b', data=data)
+
+   localizacao = response.json()
+
+   if request.method == 'POST':
+       estado = request.POST.get('estado')
+       cidade = request.POST.get('cidade')
+
+       localizacao['estado'] = estado
+       localizacao['cidade'] = cidade
+
+       response = requests.put('https://apiadvisor.climatempo.com.br/api/v1/locale/city?country=BR&token=511da671c39f877ff8525f098bab378b', data=localizacao)
+
+       if response.status_code == 200:
+           return render("Funcionou")
+
+   return render(request, 'editar_localizacao.html', {'localizacao': localizacao})
+
+def deletar(request, id):
+   id.delete()
 
 jsons = [
    {

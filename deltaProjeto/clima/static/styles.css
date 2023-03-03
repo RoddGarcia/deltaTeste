@@ -59,6 +59,13 @@ main {
 #btns span {
   margin: 5px;
 }
+#edit {
+  padding: 20px;
+  flex-direction: column;
+  width: auto;
+  gap: 8px;
+  text-align: center;
+}
 #resultados {
   height: 70%;
   width: 355px;
